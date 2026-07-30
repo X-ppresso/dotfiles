@@ -1,0 +1,22 @@
+window {
+        font-size: 16px;
+        font-family: "DepartureMono Nerd Font";
+        background-color: rgba(22, 21, 41, 0.9);
+        color: #6a65bf;
+        border-radius: 10px;
+}
+
+#text {
+        padding: 3 5px;
+
+}
+
+#entry:selected {
+        background-color: rgba(46, 43, 79, 0.9);
+}
+
+#text:selected {
+        color: #fffa5e;
+        padding: 0 10px;
+
+}

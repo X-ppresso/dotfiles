@@ -1,0 +1,4 @@
+allow_images=true
+image_size=20
+insensitive=TRUE
+exec_search=TRUE
