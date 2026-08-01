@@ -19,7 +19,7 @@ hl.monitor({
     output   = "",
     mode     = "preferred",
     position = "auto",
-    scale    = "auto",
+    scale    = "1",
 })
 
 
@@ -87,9 +87,9 @@ hl.env("HYPRCURSOR_SIZE", "32")
 hl.config({
     general = {
         gaps_in  = 5,
-        gaps_out = 20,
+        gaps_out = 10,
 
-        border_size = 2,
+        border_size = 1,
 
         col = {
             active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
@@ -262,8 +262,12 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a")
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+
+-- hyprshot stuff
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m output --clipboard-only"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -355,3 +359,14 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+-- stupid windowrules
+
+hl.window_rule({ match = { class = "vesktop" }, workspace = 2, no_initial_focus = true, opacity = 0.95 })
+hl.window_rule({ match = { class = "obsidian" }, workspace = 5, no_initial_focus = true, opacity = 0.9 })
+hl.window_rule({ match = { class = "vivaldi-stable"}, workspace = 1, no_initial_focus = true })
+hl.window_rule({ match = { class = "PureRef" }, float = true })
+hl.window_rule({ match = { class = "Aseprite" }, tile = true })
+hl.window_rule({ match = { class = "Minecraft*" }, tile = true })
+hl.window_rule({ match = { class = "com.github.th_ch.youtube_music" }, workspace = 6, no_initial_focus = true, opacity = 0.7 })
+hl.window_rule({ match = { class = "PNGTube-Remix" }, allows_input = true })
